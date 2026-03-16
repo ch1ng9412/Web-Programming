@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise14</title>
+    <style>
+        /* Container to hold the shapes and manage their positioning */
+        .shape-container {
+            position: relative; 
+            width: 300px;
+            height: 250px;
+            margin: 50px;
+        }
+
+        /* The Blue Rectangle (Square) */
+        .rectangle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            background-color: blue;
+            border: 4px solid black;
+        }
+
+        /* The Yellow Circle */
+        .circle {
+            position: absolute;
+            /* Positioning it lower and further right to create the overlap */
+            top: 25px; 
+            left: 100px; 
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            border: 4px solid #E53935; /* A slightly darker red to match the image */
+            border-radius: 50%; /* This is the magic property that makes it a circle! */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="shape-container">
+        <div class="rectangle"></div>
+        <div class="circle"></div>
+    </div>
+
+</body>
+</html>
