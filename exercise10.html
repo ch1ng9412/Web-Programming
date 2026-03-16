@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Example Box</title>
+    <style>
+        body {
+            /* Adding some padding so the box isn't stuck to the edge of the screen */
+            padding: 50px;
+            background-color: #f4f4f9;
+        }
+
+        .example-box {
+            /* Styling the box to match the image's border and shadow */
+            border: 1.5px solid black;
+            padding: 20px 20px 30px 20px;
+            background-color: white;
+            max-width: 400px;
+            box-shadow: 4px 5px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .normal-text {
+            /* The image uses a serif font (like Times New Roman) for the normal text */
+            font-family: "Times New Roman", Times, serif;
+            font-size: 18px;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        .computer-code {
+            /* The code uses a monospaced font */
+            font-family: "Courier New", Courier, monospace;
+            font-size: 14px;
+            margin: 0;
+            /* The <pre> tag naturally preserves whitespace, but we can ensure it here */
+            white-space: pre; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="example-box">
+        <!-- Normal text -->
+        <p class="normal-text">Code example:</p>
+
+        <!-- Computer code -->
+        <pre class="computer-code"><code>var person = {
+  firstName:"Your first name",
+  lastName :"Your last name",
+  studentId:"Your student ID"
+}</code></pre>
+    </div>
+
+</body>
+</html>
