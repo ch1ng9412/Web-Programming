@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise18</title>
+    <style>
+        /* Base page styling to center the content and add a soft background */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Container card with a drop shadow, similar to the image */
+        .container {
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        /* Shared heading styles */
+        h1, h2, h3 {
+            font-family: "Times New Roman", Times, serif;
+            margin: 0;
+            color: black;
+        }
+
+        /* Heading 1: Top border and pink text shadow */
+        .heading-1 {
+            border-top: 4px solid black;
+            padding-top: 5px;
+            text-shadow: 2px 2px 0px pink;
+        }
+
+        /* Heading 2: Black border with a yellow outline */
+        .heading-2 {
+            font-style: italic;
+            border: 1px solid black;
+            outline: 4px solid yellow;
+            padding: 4px 8px;
+        }
+
+        /* Heading 3: Right aligned and underlined */
+        .heading-3 {
+            text-align: right;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="heading-1">This is heading 1</h1>
+        <h2 class="heading-2">This is heading 2</h2>
+        <h3 class="heading-3">This is heading 3</h3>
+    </div>
+
+</body>
+</html>
