@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World Borders</title>
+    <style>
+        /* Base page styling to center the content and add a soft background */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Container card with a drop shadow, similar to the image */
+        .container {
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        /* Shared styling for all text boxes */
+        .box {
+            font-family: "Times New Roman", Times, serif;
+            font-size: 36px;
+            font-weight: bold;
+            color: black;
+            padding: 8px 15px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        /* 1st Box: Light blue background with a double orange border */
+        .box-1 {
+            background-color: #aed6e7;
+            border: 12px double #e8654c; 
+        }
+
+        /* 2nd Box: Yellow background with a solid blue border and rounded corners */
+        .box-2 {
+            background-color: #ffff4d;
+            border: 3px solid #4887f1;
+            border-radius: 12px;
+        }
+
+        /* 3rd Box: Green background with a thick dotted grey border */
+        .box-3 {
+            background-color: #61af6a;
+            border: 12px dotted #828282;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box box-1">Hello World</div>
+        <div class="box box-2">Hello World</div>
+        <div class="box box-3">Hello World</div>
+    </div>
+
+</body>
+</html>
