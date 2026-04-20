@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline Block and Float Example</title>
+    <style>
+        /* 模擬截圖中淺灰色的外部背景 */
+        body {
+            background-color: #f2f2f2;
+            padding: 40px;
+            /* 使用襯線字體以符合截圖風格 */
+            font-family: "Times New Roman", Times, serif; 
+        }
+
+        /* 主內容白色區塊 */
+        .container {
+            background-color: white;
+            padding: 30px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* 黃底藍框的行內區塊 (Inline-block) */
+        .highlight {
+            display: inline-block;
+            background-color: yellow;
+            border: 1px solid blue;
+            padding: 0px 4px;
+        }
+
+        /* 右側浮動並帶有捲軸的區塊 (Float with overflow) */
+        .float-box {
+            float: right; /* 讓區塊浮動到右側，文字會環繞它 */
+            width: 160px;
+            height: 150px;
+            border: 4px solid #7cb342; /* 綠色邊框 */
+            overflow: auto; /* 內容超出高度時自動顯示捲軸 */
+            margin-left: 20px; /* 與左側文字保持距離 */
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+            /* 讓浮動區塊內的字體稍微區別於主文 */
+            font-family: Arial, sans-serif; 
+            line-height: 1.4;
+        }
+        
+        /* 清除段落預設的上下邊距以完美對齊 */
+        p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 右側浮動區塊，在 HTML 結構中通常放在段落的最前面，這樣文字才能正確環繞 -->
+        <div class="float-box">
+            A float div with overflow auto. A float div with overflow auto. 
+            A float div with overflow auto. A float div with overflow auto. 
+            A float div with overflow auto. A float div with overflow auto.
+        </div>
+
+        <!-- 主文段落 -->
+        <p>
+            (Just long sentence.) Let me not to the marriage of true minds Admit impediments. 
+            <span class="highlight">Love</span> is not love Which alters when it alteration finds, 
+            Or bends with the remover to remove: O, no! it is an ever-fix`ed mark, 
+            That looks on tempests and is never shaken; It is the star to every wand'ring bark, 
+            Whose worth's unknown, although his heighth be taken. 
+            <span class="highlight">Love's</span> not Time's fool, though rosy lips and cheeks 
+            Within his bending sickle's compass come; 
+            <span class="highlight">Love</span> alters not with his brief hours and weeks, 
+            But bears it out even to the edge of doom. If this be error and upon me proved, 
+            I never writ, nor no man ever loved.
+        </p>
+    </div>
+
+</body>
+</html>
