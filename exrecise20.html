@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table and Fixed Position</title>
+    <style>
+        /* 模擬截圖中淺灰色的外部背景 */
+        body {
+            background-color: #f2f2f2;
+            padding: 40px;
+            font-family: "Times New Roman", Times, serif; /* 使用襯線字體以符合截圖 */
+        }
+
+        /* 模擬截圖中白色的主內容區塊 */
+        .container {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+            min-height: 250px;
+            max-width: 700px;
+            position: relative; /* 新增：作為內部元素絕對定位的參考點 */
+        }
+
+        /* 表格樣式設定 */
+        table {
+            border-collapse: collapse; /* 讓表格邊框合併為單一線條 */
+            width: 250px;
+            text-align: left;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        /* 表格標題列 (深灰底白字) */
+        th {
+            background-color: #666666;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* 表格資料列奇數行 (黃底) */
+        tbody tr:nth-child(odd) {
+            background-color: #ffff66;
+        }
+
+        /* 表格資料列偶數行 (白底) */
+        tbody tr:nth-child(even) {
+            background-color: white;
+        }
+
+        /* 定位在右上角的 Div 區塊 */
+        .fixed-div {
+            position: absolute; /* 改為絕對定位，使其對齊白色方框 */
+            top: 20px;       /* 距離白色方框頂部 */
+            right: 20px;     /* 距離白色方框右側 */
+            width: 120px;    /* 設定寬度使其自然換行與截圖相符 */
+            border: 3px solid #6b8e23; /* 橄欖綠邊框 */
+            padding: 5px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- 左側表格 -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>3</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- 右上方固定位置的區塊 -->
+        <div class="fixed-div">
+            This div element has position: fixed;
+        </div>
+
+    </div>
+
+</body>
+</html>
