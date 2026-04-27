@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercise29</title>
+    
+    <!-- Link Bootstrap 3 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    
+    <style>
+        /* 增加一些額外的樣式，讓它看起來像截圖中帶有陰影的白色卡片 */
+        body {
+            background-color: #f4f4f4;
+            padding: 40px 20px;
+        }
+
+        /* 對應圖片中外層的 container */
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+        
+        /* 稍微調整各元素之間的間距以符合圖片視覺 */
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .alert {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- A <div> with class="container" -->
+    <div class="container">
+        
+        <!-- A <div> with class="jumbotron" -->
+        <div class="jumbotron">
+            <h2>My First Bootstrap Page</h2>
+        </div>
+
+        <!-- A <input> with type="text", class="form-control" -->
+        <div class="form-group">
+            <label for="practiceInput">Input:</label>
+            <input type="text" class="form-control" id="practiceInput">
+        </div>
+
+        <!-- A <div> with class="alert alert-success" -->
+        <div class="alert alert-success">
+            Successful alert
+        </div>
+
+        <!-- Button & Badge 區塊 -->
+        <div>
+            <!-- A <button> with class="btn btn-default" -->
+            <button type="button" class="btn btn-default">Button</button>
+            
+            <!-- A <span> with class="badge" -->
+            <span class="badge">badge</span>
+        </div>
+
+    </div>
+
+</body>
+</html>
