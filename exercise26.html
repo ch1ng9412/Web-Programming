@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercise26</title>
+    <style>
+        /* 頁面基本排版 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* 圖片的外部容器，讓三張圖片橫向排列 */
+        .gallery-container {
+            display: flex;
+            justify-content: space-between; /* 均分剩餘空間 */
+            align-items: center;
+            width: 100%;
+            max-width: 1000px;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            gap: 20px;
+        }
+
+        /* 左側圖片：寬度 33%，高度 300px，圓角 18px
+           使用 object-fit: cover 確保圖片不會變形 (no distortion)
+        */
+        .img-left {
+            width: 33%;
+            height: 300px;
+            border-radius: 18px;
+            object-fit: cover; 
+            /* object-fit: cover 會保持圖片比例，多餘的部分會被裁切掉 */
+        }
+
+        /* 中間圖片：寬度 150px，高度 150px
+           使用 border-radius 製作成圓形 (圖片中標註的 border 150px 應為 border-radius)
+        */
+        .img-center {
+            width: 150px;
+            height: 150px;
+            border-radius: 150px; /* 或寫成 50% 也能達到完美的圓形 */
+            border: 1px solid #333; /* 加上輕微的邊框 */
+            object-fit: cover; /* 保持圓形內的圖片比例正常 */
+        }
+
+        /* 右側圖片：寬度 33%，高度 300px
+           不特別設定 object-fit，圖片會被強制拉伸至設定的寬高 (distortion)
+        */
+        .img-right {
+            width: 33%;
+            height: 300px;
+            /* 預設值為 object-fit: fill，這會導致圖片被擠壓或拉伸產生變形 */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gallery-container">
+        <!-- 左側：無變形、圓角 18px -->
+        <img class="img-left" src="https://picsum.photos/id/1040/600/400" alt="No distortion">
+        
+        <!-- 中間：正圓形 150x150 -->
+        <img class="img-center" src="https://picsum.photos/id/1018/400/400" alt="Circle">
+        
+        <!-- 右側：被強制變形拉伸 -->
+        <img class="img-right" src="https://picsum.photos/id/1040/600/400" alt="Distortion">
+    </div>
+
+</body>
+</html>
