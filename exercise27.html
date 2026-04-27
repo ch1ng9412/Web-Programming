@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercise27</title>
+    <style>
+        /* 設定外層的藍色背景與置中對齊 */
+        body {
+            background-color: #42a5f5; /* 背景藍色 */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* 主容器 (白色外框與背景) */
+        .container {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 600px; /* 限制最大寬度以符合桌面版視覺 */
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* 區塊之間的上下白色間距 */
+        }
+
+        /* 頂部綠色大區塊 */
+        .box-top {
+            background-color: #aed581; /* 綠色 */
+            height: 140px;
+        }
+
+        /* 中間藍綠色區塊容器 (預設為桌面版的 3 欄) */
+        .middle-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 均分成 3 個等寬欄位 */
+            gap: 15px; /* 網格間的白色間距 */
+        }
+
+        .box-middle {
+            background-color: #00bcd4; /* 藍綠色 */
+            height: 120px;
+        }
+
+        /* 底部淺灰色區塊容器 (預設為桌面版的 4 欄) */
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 均分成 4 個等寬欄位 */
+            gap: 15px; /* 網格間的白色間距 */
+        }
+
+        .box-bottom {
+            background-color: #eceff1; /* 淺灰色 */
+            height: 70px;
+        }
+
+        /* ----- 響應式設計 (媒體查詢) ----- */
+        /* 當螢幕寬度小於或等於 480px 時，覆寫以上的網格設定 */
+        @media (max-width: 480px) {
+            
+            /* 中間的藍綠色區塊變成 1 欄 (垂直堆疊) */
+            .middle-grid {
+                grid-template-columns: 1fr; 
+                /* 高度可以稍微調小一點，避免在手機上過長 */
+            }
+            .box-middle {
+                height: 80px; 
+            }
+
+            /* 底部的灰色區塊變成 2 欄 (2x2 佈局) */
+            .bottom-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 頂部綠色區塊 -->
+        <div class="box-top"></div>
+
+        <!-- 中間藍綠色網格 -->
+        <div class="middle-grid">
+            <div class="box-middle"></div>
+            <div class="box-middle"></div>
+            <div class="box-middle"></div>
+        </div>
+
+        <!-- 底部淺灰色網格 -->
+        <div class="bottom-grid">
+            <div class="box-bottom"></div>
+            <div class="box-bottom"></div>
+            <div class="box-bottom"></div>
+            <div class="box-bottom"></div>
+        </div>
+    </div>
+
+</body>
+</html>
