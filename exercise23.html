@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Info Toggle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <style>
+        /* 基本重置與頁面背景 */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            /* 使用設計圖標註的淺灰背景來凸顯主體 */
+            background-color: #e5e5e5; 
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* 右側預覽主要容器 (依據標註的寬度 496px) */
+        .preview-container {
+            width: 496px;
+            background-color: #ffffff;
+            border: 1px solid #cfddff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 頂部工具列 (依據標註高度 35px) */
+        .toolbar {
+            height: 35px;
+            background-color: #f6f6f6; /* header bg color */
+            display: flex;
+            justify-content: flex-end; /* 按鈕靠右對齊 */
+            align-items: center;
+            padding-right: 22px; /* 距離右側邊界 22px */
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        /* --- 核心按鈕設計 (完全依照標註設定) --- */
+        .toggle-btn {
+            height: 22px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            border: 1px solid #2f2f2f;
+            color: #2f2f2f;
+            font-family: 'Roboto', sans-serif;
+            font-size: 13px;
+            padding: 0 18px; /* 標註中按鈕文字左右的 18px 距離 */
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .toggle-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* 圖片預覽區塊 */
+        .image-wrapper {
+            padding: 20px 26px 20px 20px; /* 依據圖片兩側的 20 與 26 標註 */
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* 使用 CSS 模擬圖片，確保沒有外部圖片也能正常顯示，尺寸依據 Default 450x240 */
+        .image-placeholder {
+            width: 450px;
+            height: 240px;
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* 展開的詳細資訊面板 */
+        .info-panel {
+            display: none; /* 預設為隱藏 */
+            padding: 0px 26px 20px 20px; /* 延續圖片兩側的邊距 */
+            background-color: #ffffff;
+        }
+
+        /* 展開狀態下圖片區塊底部的間距調整 */
+        .preview-container.is-expanded .image-wrapper {
+            padding-bottom: 10px; /* 讓圖片與第一行文字距離符合標註的 10px */
+        }
+
+        /* 資訊列字體設計 (依據標註 Font style) */
+        .info-row {
+            font-family: 'Roboto', sans-serif;
+            font-size: 13px;
+            color: #707070;
+            margin-bottom: 6px; /* 標註指示行距為 6px */
+            line-height: 1.2;
+            word-break: break-all;
+        }
+
+        .info-row:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="preview-container" id="previewContainer">
+        <!-- 工具列與按鈕 -->
+        <div class="toolbar">
+            <button class="toggle-btn" id="infoBtn">查看資訊</button>
+        </div>
+
+        <!-- 圖片區域 -->
+        <div class="image-wrapper">
+            <!-- 這裡使用 CSS 色塊替代原圖，您也可以換成真實的 <img src="..."> -->
+            <div class="image-placeholder">
+                <span>Default</span>
+                <span>450x240</span>
+            </div>
+        </div>
+
+        <!-- 隱藏的資訊區塊 -->
+        <div class="info-panel" id="infoPanel">
+            <!-- 內容依照設計圖右下角的範例文字 -->
+            <div class="info-row">修改日期 : 2017/10/12</div>
+            <div class="info-row">類別 : JPG</div>
+            <div class="info-row">大小 : 466.97KB</div>
+            <div class="info-row">路徑 : \\designcenter.qnap.com.tw\DesignCenter\PM_RD 請進入\WEB\Stations\A_Image2PDF\v2\sample</div>
+        </div>
+    </div>
+
+    <script>
+        // 取得 DOM 元素
+        const infoBtn = document.getElementById('infoBtn');
+        const infoPanel = document.getElementById('infoPanel');
+        const previewContainer = document.getElementById('previewContainer');
+
+        // 設定按鈕點擊事件監聽器
+        infoBtn.addEventListener('click', function() {
+            // 檢查目前是否為隱藏狀態
+            const isHidden = window.getComputedStyle(infoPanel).display === 'none';
+
+            if (isHidden) {
+                // 展開資訊
+                infoPanel.style.display = 'block';
+                previewContainer.classList.add('is-expanded');
+                infoBtn.textContent = '收起資訊'; // 更改按鈕文字 (如圖右下角所示)
+            } else {
+                // 收起資訊
+                infoPanel.style.display = 'none';
+                previewContainer.classList.remove('is-expanded');
+                infoBtn.textContent = '查看資訊'; // 恢復按鈕文字
+            }
+        });
+    </script>
+
+</body>
+</html>
