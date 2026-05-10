@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Projects</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontSize: {
+            '11': '11px',
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased select-none bg-[#fafafa] text-black overflow-hidden">
+
+  <!-- ==========================================
+       🎯 修改 1：數值化載入器 (0~100%)
+       ========================================== -->
+  <div id="loader" class="fixed inset-0 z-[100] bg-[#fafafa] flex items-center justify-center transition-opacity duration-1000 pointer-events-none">
+    <!-- 僅顯示數字，移除 Loading 文字 -->
+    <span id="loader-percent" class="text-1xl font-light tracking-tighter">0%</span>
+  </div>
+
+  <div id="ui-layer" class="absolute inset-0 z-10 pointer-events-none flex flex-col justify-between">
+    <header class="w-full p-2 sm:p-4" id="main-header">
+      <nav class="w-full sm:max-w-[36.25rem] mx-auto">
+        <ul class="flex w-full text-xs font-medium uppercase tracking-wide">
+          <li class="w-1/4 flex-shrink-0 md:w-[12.5rem] pointer-events-auto">
+            <a href="#" class="flex items-start gap-1 hover:opacity-50 transition-opacity">
+              <span>UNVEIL</span><small class="mt-[-2px] text-[9px]">®</small>
+              <span class="hidden md:block ml-2 capitalize font-normal">Projects</span>
+            </a>
+          </li>
+          <li class="w-1/4 md:w-full pointer-events-auto"><a href="#" class="capitalize font-normal hover:opacity-50 transition-opacity">Research</a></li>
+          <li class="w-1/4 md:w-full pointer-events-auto"><a href="#" class="capitalize font-normal hover:opacity-50 transition-opacity">Studio</a></li>
+          <li class="w-1/4 md:w-full pointer-events-auto text-right md:text-left"><button type="button" class="capitalize font-normal hover:opacity-50 transition-opacity">Contact</button></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="flex flex-col items-center justify-center mb-12 sm:mb-24" id="main-info">
+      <nav class="w-auto pointer-events-auto">
+        <ul class="flex flex-col sm:flex-row gap-4 px-4 text-sm">
+          <li><a href="mailto:contact@unveil.fr" class="opacity-40 hover:opacity-100 transition-opacity duration-300">contact@unveil.fr</a></li>
+          <li><a href="https://instagram.com/byunveil/" target="_blank" rel="noopener noreferrer" class="opacity-40 hover:opacity-100 transition-opacity duration-300">Instagram</a></li>
+          <li class="hidden sm:block"><a href="https://maps.app.goo.gl/yvLUoqpnDYZmS8x56" target="_blank" rel="noopener noreferrer" class="opacity-40 hover:opacity-100 transition-opacity duration-300">25 Rue Henry Monnier, 75009 Paris</a></li>
+        </ul>
+      </nav>
+    </section>
+
+    <nav class="absolute bottom-3 left-4 flex gap-4 text-11 pointer-events-auto" id="legal-nav">
+      <a href="#" class="opacity-30 hover:opacity-100 transition-opacity">Cookie Policy</a>
+      <a href="#" class="opacity-30 hover:opacity-100 transition-opacity">Privacy Policy</a>
+      <a href="#" class="opacity-30 hover:opacity-100 transition-opacity">Legal Notice</a>
+    </nav>
+
+    <nav class="absolute bottom-3 right-4 pointer-events-auto">
+      <a href="#" class="text-sm font-medium hover:opacity-50 transition-opacity">Overview</a>
+    </nav>
+  </div>
+
+  <main id="viewport" class="absolute inset-0 z-0 viewport-3d">
+    <div id="track" class="deck-track">
+      <!-- Cards injected by app.js -->
+    </div>
+  </main>
+
+  <!-- 全域滑鼠跟隨標題 -->
+  <div id="cursor-title" class="fixed top-0 left-0 pointer-events-none z-[9999] uppercase"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
