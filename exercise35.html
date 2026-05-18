@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Object Manipulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 40px;
+            color: #333;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 18px;
+            color: #0056b3;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        pre {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 14px;
+            white-space: pre-wrap;
+        }
+
+        .output-section {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="output-section">
+            <h2>1. Original Object</h2>
+            <pre id="original-object"></pre>
+        </div>
+
+        <div class="output-section">
+            <h2>2. List of Properties</h2>
+            <pre id="object-properties"></pre>
+        </div>
+
+        <div class="output-section">
+            <h2>3. Object After Deleting "age"</h2>
+            <pre id="modified-object"></pre>
+        </div>
+    </div>
+
+    <script>
+        // 1. Define the original object
+        var Person = {
+            firstName: "Tony",
+            lastName: "Lee",
+            age: 50,
+            eyeColor: "Blue"
+        };
+
+        // Display the original object on the webpage
+        document.getElementById("original-object").textContent = JSON.stringify(Person, null, 4);
+
+        // 2. List all properties of the object
+        // Object.keys() returns an array of a given object's own enumerable property names
+        var properties = Object.keys(Person);
+        document.getElementById("object-properties").textContent = properties.join(", ");
+
+        // 3. Delete the 'age' property
+        delete Person.age;
+
+        // Display the modified object on the webpage
+        document.getElementById("modified-object").textContent = JSON.stringify(Person, null, 4);
+    </script>
+
+</body>
+</html>
