@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercise 37</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            padding: 40px;
+            color: #333;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #0056b3;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            /* Ensures padding doesn't affect total width */
+            font-size: 16px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            flex: 1;
+            padding: 10px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #004494;
+        }
+
+        .output {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 14px;
+            min-height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Circle Calculator</h2>
+
+        <div class="input-group">
+            <label for="radiusInput">Enter Radius:</label>
+            <input type="number" id="radiusInput" value="5" min="0" step="any">
+        </div>
+
+        <div class="button-group">
+            <button onclick="handleCircumference()">calcCircumfrence</button>
+            <button onclick="handleArea()">calcArea</button>
+        </div>
+
+        <div id="outputDisplay" class="output">
+            Results will appear here...
+        </div>
+    </div>
+
+    <script>
+        // 1. Create a function called calcCircumfrence (Name matched exactly to the image prompt)
+        function calcCircumfrence(radius) {
+            // Circumference formula: 2 * PI * r
+            var circumference = 2 * Math.PI * radius;
+
+            // Format to 2 decimal places for cleaner output, though not strictly required
+            var outputString = "The circumference is " + circumference.toFixed(2);
+
+            // Often in basic JS exercises, output means console.log. 
+            // We do both console.log and return it for the UI.
+            console.log(outputString);
+            return outputString;
+        }
+
+        // 2. Create a function called calcArea
+        function calcArea(radius) {
+            // Area formula: PI * r * r
+            var area = Math.PI * radius * radius;
+
+            var outputString = "The area is " + area.toFixed(2);
+
+            console.log(outputString);
+            return outputString;
+        }
+
+        // --- Helper functions to connect the UI buttons to our logic ---
+        function handleCircumference() {
+            var radius = parseFloat(document.getElementById('radiusInput').value);
+            if (isNaN(radius) || radius < 0) {
+                document.getElementById('outputDisplay').textContent = "Please enter a valid positive number.";
+                return;
+            }
+            // Call the requested function
+            var result = calcCircumfrence(radius);
+            document.getElementById('outputDisplay').textContent = result;
+        }
+
+        function handleArea() {
+            var radius = parseFloat(document.getElementById('radiusInput').value);
+            if (isNaN(radius) || radius < 0) {
+                document.getElementById('outputDisplay').textContent = "Please enter a valid positive number.";
+                return;
+            }
+            // Call the requested function
+            var result = calcArea(radius);
+            document.getElementById('outputDisplay').textContent = result;
+        }
+    </script>
+
+</body>
+
+</html>
